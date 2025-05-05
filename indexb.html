@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>موقعي الشخصي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to left, #0077b6, #00b4d8);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 15px;
+    }
+    header h1 {
+      font-size: 2em;
+      margin: 10px 0 5px;
+    }
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    section {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    section h2 {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #0077b6;
+      border-right: 5px solid #00b4d8;
+      padding-right: 10px;
+    }
+    .portfolio img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      border: 2px solid #eee;
+    }
+    .skills span {
+      display: inline-block;
+      background: #00b4d8;
+      color: white;
+      padding: 8px 14px;
+      margin: 5px;
+      border-radius: 30px;
+      font-size: 0.95em;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background: #0077b6;
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .social a {
+      display: inline-block;
+      background: #0077b6;
+      color: white;
+      text-decoration: none;
+      margin: 5px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-size: 0.95em;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://a.top4top.io/p_3412ybekz0.jpg" alt="صورة شخصية">
+    <h1>عبدالفتاح الواقدي</h1>
+    <p>مبرمج ومصمم مواقع | مستقل | مهتم بالتقنية</p>
+    <div class="social">
+      <a href="#">تويتر</a>
+      <a href="#">لينكدإن</a>
+      <a href="#">GitHub</a>
+    </div>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>معرض الأعمال</h2>
+      <div class="portfolio">
+        <img src="https://a.top4top.io/p_3412patq80.png" alt="مشروع 1">
+        <p>تصميم واجهة تطبيق للهاتف المحمول بواجهة جذابة وسهلة الاستخدام.</p>
+        <img src="https://d.top4top.io/p_34120w10h0.png" alt="مشروع 2">
+        <p>موقع شخصي لعميل يضم معرضًا ومهارات وتواصل مباشر.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>المهارات</h2>
+      <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>JavaScript</span>
+        <span>React</span>
+        <span>تصميم UI/UX</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>الشهادات والإنجازات</h2>
+      <ul>
+        <li>شهادة تطوير ويب من منصة Udemy</li>
+        <li>مشروع ناجح لعميل من الخليج</li>
+        <li>مشارك في هاكاثون تقني عام 2024</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>تواصل معي</h2>
+      <form onsubmit="sendWhatsAppMessage(); return false;">
+        <input type="text" id="name" placeholder="اسمك الكامل" required>
+        <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
+        <textarea rows="5" id="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+        <button type="button" onclick="sendWhatsAppMessage()">إرسال الرسالة</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 جميع الحقوق محفوظة - عبدالفتاح الواقدي
+  </footer>
+
+  <script>
+    function sendWhatsAppMessage() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const phoneNumber = '967737996293';
+
+      const fullMessage = `الاسم: ${name}\nالبريد: ${email}\nالرسالة: ${message}`;
+      const encodedMessage = encodeURIComponent(fullMessage);
+      const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
